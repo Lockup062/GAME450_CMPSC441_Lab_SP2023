@@ -8,6 +8,18 @@ import random
 import itertools
 
 def get_randomly_spread_cities(size, n_cities):
+
+    #MY CODE //////////////////
+
+    list_of_tups = []
+n_cities = 10;
+size = (100,300)
+for i in range(0,n_cities):
+ xcord= random.randrange(0,size[0])
+ ycord = random.randrange(0,size[1])
+ tempcord = (xcord,ycord)
+ list_of_tups.append(tempcord)
+ return (list_of_tups)
     """
     > This function takes in the size of the map and the number of cities to be generated 
     and returns a list of cities with their x and y coordinates. The cities are randomly spread
@@ -21,6 +33,10 @@ def get_randomly_spread_cities(size, n_cities):
     pass
 
 def get_routes(city_names):
+    #MY CODE //////////////
+    routes = []
+    routes = itertools.combinations(city_names, 2)
+    return(*routes)
     """
     It takes a list of cities and returns a list of all possible routes between those cities. 
     Equivalently, all possible routes is just all the possible pairs of the cities. 
