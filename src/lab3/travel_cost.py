@@ -10,6 +10,45 @@ A terrain is generated for you
 import numpy as np
 
 def get_route_cost(route_coordinate, game_map):
+  #my code ///////////////////////////////
+
+import numpy as np
+route = ((0,0),(5,4))
+gameMap = np.array([[2,3,4], [5,6,7], [8,9,10], [11,12,13], [14,15,16]])
+myroute = []
+myroute.insert(0,route[0][0])
+myroute.insert(1,route[0][1])
+myroute.insert(2,route[1][0])
+myroute.insert(3,route[1][1])
+
+def get_route_cost(route_coordinate, game_map):
+    cost = 0.0;
+
+    while(myroute[0]<myroute[2] and myroute[1]<myroute[3]):
+        cost += game_map[myroute[0],myroute[1]];
+        myroute[0]= (myroute[0])+1; 
+        myroute[1]= (myroute[1])+1; 
+        print(myroute[0],myroute[1] )
+        
+
+    
+    while(myroute[0]>myroute[2] and myroute[1]>myroute[3]):
+        cost += game_map[myroute[0],myroute[1]];
+        myroute[0]-1; 
+        myroute[1]-1; 
+
+    while(myroute[0]<myroute[2] and myroute[1]>myroute[3]):
+        cost += game_map[myroute[0],myroute[1]];
+        myroute[0]+1; 
+        myroute[1]-1; 
+
+    while(myroute[0]>myroute[2] and myroute[1]<myroute[3]):
+        cost += game_map[myroute[0],myroute[1]];
+        myroute[0]-1; 
+        myroute[1]+1; 
+
+    return cost
+
     """
     This function takes in a route_coordinate as a tuple of coordinates of cities to connect, 
     example:  and a game_map as a numpy array of floats,
