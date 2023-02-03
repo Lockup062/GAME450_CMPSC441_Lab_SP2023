@@ -12,43 +12,63 @@ import numpy as np
 def get_route_cost(route_coordinate, game_map):
   #my code ///////////////////////////////
 
-import numpy as np
-route = ((0,0),(5,4))
-gameMap = np.array([[2,3,4], [5,6,7], [8,9,10], [11,12,13], [14,15,16]])
-myroute = []
-myroute.insert(0,route[0][0])
-myroute.insert(1,route[0][1])
-myroute.insert(2,route[1][0])
-myroute.insert(3,route[1][1])
+#import numpy as np
+# route = ((0,0),(5,4))
+# gameMap = np.array([[2,3,4], [5,6,7], [8,9,10], [11,12,13], [14,15,16]])
+# myroute = []
+# myroute.insert(0,route[0][0])
+# myroute.insert(1,route[0][1])
+# myroute.insert(2,route[1][0])
+# myroute.insert(3,route[1][1])
 
-def get_route_cost(route_coordinate, game_map):
-    cost = 0.0;
+# def get_route_cost(route_coordinate, game_map):
+#     cost = 0.0;
 
-    while(myroute[0]<myroute[2] and myroute[1]<myroute[3]):
-        cost += game_map[myroute[0],myroute[1]];
-        myroute[0]= (myroute[0])+1; 
-        myroute[1]= (myroute[1])+1; 
-        print(myroute[0],myroute[1] )
+#     while(myroute[0]<myroute[2] and myroute[1]<myroute[3]):
+#         cost += game_map[myroute[0],myroute[1]];
+#         myroute[0]= (myroute[0])+1; 
+#         myroute[1]= (myroute[1])+1; 
+#         print(myroute[0],myroute[1] )
         
 
     
-    while(myroute[0]>myroute[2] and myroute[1]>myroute[3]):
-        cost += game_map[myroute[0],myroute[1]];
-        myroute[0]-1; 
-        myroute[1]-1; 
+#     while(myroute[0]>myroute[2] and myroute[1]>myroute[3]):
+#         cost += game_map[myroute[0],myroute[1]];
+#         myroute[0]-1; 
+#         myroute[1]-1; 
 
-    while(myroute[0]<myroute[2] and myroute[1]>myroute[3]):
-        cost += game_map[myroute[0],myroute[1]];
-        myroute[0]+1; 
-        myroute[1]-1; 
+#     while(myroute[0]<myroute[2] and myroute[1]>myroute[3]):
+#         cost += game_map[myroute[0],myroute[1]];
+#         myroute[0]+1; 
+#         myroute[1]-1; 
 
-    while(myroute[0]>myroute[2] and myroute[1]<myroute[3]):
-        cost += game_map[myroute[0],myroute[1]];
-        myroute[0]-1; 
-        myroute[1]+1; 
+#     while(myroute[0]>myroute[2] and myroute[1]<myroute[3]):
+#         cost += game_map[myroute[0],myroute[1]];
+#         myroute[0]-1; 
+#         myroute[1]+1; 
 
-    return cost
+#     return cost
 
+#NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE 
+##route = ((0,0),(5,4))
+    x1, y1 = route_coordinate[0]
+    x2, y2 = route_coordinate[1]
+    x_diff = x2 - x1
+    y_diff = y2 - y1
+    steps = max(abs(x_diff), abs(y_diff))
+    x_step = x_diff / steps
+    y_step = y_diff / steps
+    coords = []
+    for i in range(steps + 1):
+        x = x1 + i * x_step
+        y = y1 + i * y_step
+        coords.append((round(x), round(y)))
+        
+    return coords
+
+numpy_array = np.zeros((6, 5))
+
+path = shortest_path(route, numpy_array)
     """
     This function takes in a route_coordinate as a tuple of coordinates of cities to connect, 
     example:  and a game_map as a numpy array of floats,
@@ -60,7 +80,7 @@ def get_route_cost(route_coordinate, game_map):
     two cities at the end points of a route, and then sums the cost of those cells
       -------------
     1 | A |   |   |
-      |-----------|
+      |do you wanna build a snowman012-|
     2 |   |   |   |
       |-----------|
     3 |   | C |   |
