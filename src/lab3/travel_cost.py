@@ -51,24 +51,24 @@ def get_route_cost(route_coordinate, game_map):
 
 #NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE 
 ##route = ((0,0),(5,4))
-    x1, y1 = route_coordinate[0]
-    x2, y2 = route_coordinate[1]
-    x_diff = x2 - x1
-    y_diff = y2 - y1
-    steps = max(abs(x_diff), abs(y_diff))
-    x_step = x_diff / steps
-    y_step = y_diff / steps
-    coords = []
-    for i in range(steps + 1):
-        x = x1 + i * x_step
-        y = y1 + i * y_step
-        coords.append((round(x), round(y)))
-        
-    return coords
+      x1, y1 = route_coordinate[0]
+      x2, y2 = route_coordinate[1]
+      x_diff = x2 - x1
+      y_diff = y2 - y1
+      steps = max(abs(x_diff), abs(y_diff))
+      x_step = x_diff / steps
+      y_step = y_diff / steps
+      coords = []
+      for i in range(steps + 1):
+          x = x1 + i * x_step
+          y = y1 + i * y_step
+          coords.append((round(x), round(y)))
+          
+      return coords
 
-game_map = np.zeros((6, 5))
+  game_map = np.zeros((6, 5))
 
-path = get_route_cost(route, game_map)
+  path = get_route_cost(route, game_map)
     """
     This function takes in a route_coordinate as a tuple of coordinates of cities to connect, 
     example:  and a game_map as a numpy array of floats,
