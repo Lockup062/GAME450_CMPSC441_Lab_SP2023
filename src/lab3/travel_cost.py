@@ -66,9 +66,9 @@ def get_route_cost(route_coordinate, game_map):
         
     return coords
 
-numpy_array = np.zeros((6, 5))
+game_map = np.zeros((6, 5))
 
-path = shortest_path(route, numpy_array)
+path = get_route_cost(route, game_map)
     """
     This function takes in a route_coordinate as a tuple of coordinates of cities to connect, 
     example:  and a game_map as a numpy array of floats,
