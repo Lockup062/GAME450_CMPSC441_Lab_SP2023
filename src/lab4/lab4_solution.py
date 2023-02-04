@@ -44,8 +44,24 @@ class AiPlayer(Player):
         super().__init__(name)
         self.initial_weapon = random_weapon_select()
     
-    def weapon_selecting_strategy(self):
-        pass
+   def weapon_selecting_strategy(self):
+         #check if it is a mimic
+         if(agent==2):
+             #if it is not empty, and is a mimic
+             if len(self.opponent_choices)!=0:
+              if(self.opponent_choices[-1]==0):
+                  #if the last choice was rock, the AI will choose rock, therefore, return 1 which is equal to paper
+                  return(1)
+              elif(self.opponent_choices[-1]==1):
+                  #if the last choice was paper, the AI will choose paper, therefore, return 2 which is equal to scissors
+
+                  return(2)
+              elif(self.opponent_choices[-1]==2):
+                   #if the last choice was scissors, the AI will choose scissors, therefore, return 0 which is equal to rock
+                  return(0)
+         if len(self.opponent_choices)==0:
+              return self.initial_weapon
+         return (self.opponent_choices[-1]+1)%3 
 
 
 if __name__ == '__main__':
